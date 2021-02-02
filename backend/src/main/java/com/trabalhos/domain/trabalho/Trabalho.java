@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -39,17 +40,13 @@ public class Trabalho implements Serializable {
     @Column(name = "materia")
     private String materia;
 
-    @NotEmpty
-    @NotBlank
-    @Size(max = 2)
+    @NotNull
     @Column(name = "ciclo")
-    private String ciclo;
+    private Integer ciclo;
 
-    @NotEmpty
-    @NotBlank
-    @Size(max = 2)
+    @NotNull
     @Column(name = "semana")
-    private String semana;
+    private Integer semana;
 
     @NotEmpty
     @NotBlank
@@ -75,16 +72,11 @@ public class Trabalho implements Serializable {
     @Column(name = "status")
     private String status;
 
-    @NotEmpty
-    @NotBlank
-    @Size(max = 5)
+    @NotNull
     @Column(name = "envio")
-    private String envio;
+    private boolean envio;
 
-    @NotEmpty
-    @NotBlank
-    @Size(max = 5)
+    @NotNull
     @Column(name = "apresentar")
-    private String apresentar;
-
+    private boolean apresentar;
 }
