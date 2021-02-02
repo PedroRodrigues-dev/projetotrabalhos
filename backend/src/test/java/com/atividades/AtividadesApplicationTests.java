@@ -1,10 +1,10 @@
-package com.trabalhos;
+package com.atividades;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TrabalhosApplicationTests {
+class AtividadesApplicationTests {
 
 	@Test
 	void contextLoads() {

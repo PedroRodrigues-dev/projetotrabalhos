@@ -1,4 +1,4 @@
-package com.trabalhos.core.Controller;
+package com.atividades.core.Controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

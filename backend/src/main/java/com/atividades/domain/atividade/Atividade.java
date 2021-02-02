@@ -1,26 +1,37 @@
-package com.trabalhos.domain.trabalho;
+package com.atividades.domain.atividade;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.atividades.domain.materia.Materia;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "trabalhos")
+@Table(name = "atividades")
 @Getter
 @Setter
-public class Trabalho implements Serializable {
+public class Atividade implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -34,11 +45,10 @@ public class Trabalho implements Serializable {
     @Column(name = "dia")
     private String dia;
 
-    @NotEmpty
-    @NotBlank
-    @Size(max = 120)
-    @Column(name = "materia")
-    private String materia;
+    @NotNull
+    @JoinColumn(name = "materia_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Materia materia;
 
     @NotNull
     @Column(name = "ciclo")
@@ -54,17 +64,19 @@ public class Trabalho implements Serializable {
     @Column(name = "atividade")
     private String atividade;
 
-    @NotEmpty
-    @NotBlank
-    @Size(max = 18)
+    @NotNull
     @Column(name = "data_inicio")
-    private String data_inicio;
+    @Temporal(TemporalType.TIMESTAMP) // yyyy-MM-dd HH:mm:ss
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date data_inicio;
 
-    @NotEmpty
-    @NotBlank
-    @Size(max = 18)
+    @NotNull
     @Column(name = "data_final")
-    private String data_final;
+    @Temporal(TemporalType.TIMESTAMP) // yyyy-MM-dd HH:mm:ss
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date data_final;
 
     @NotEmpty
     @NotBlank
@@ -79,4 +91,5 @@ public class Trabalho implements Serializable {
     @NotNull
     @Column(name = "apresentar")
     private boolean apresentar;
+
 }

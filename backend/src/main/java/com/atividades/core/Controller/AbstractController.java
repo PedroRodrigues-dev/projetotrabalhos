@@ -1,6 +1,6 @@
-package com.trabalhos.core.Controller;
+package com.atividades.core.Controller;
 
-import com.trabalhos.core.Service.IService;
+import com.atividades.core.Service.IService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.trabalhos.core.Service;
+package com.atividades.core.Service;
 
 import org.springframework.validation.Errors;
 
