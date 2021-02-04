@@ -1,1 +1,41 @@
-<p>materia works!</p>
+<mat-card>
+  <div>
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['']"
+        class="button-cadastra"
+      >
+        Adicionar Materia
+      </button>
+    </div>
+    <table class="mat-elevation-z8">
+      <thead>
+        <tr>
+          <td class="cabecalho-tabela">Matéria</td>
+          <td class="cabecalho-tabela">Professor</td>
+          <td class="actions cabecalho-tabela">Ações</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let materia of materias">
+          <td>{{ materia.materia }}</td>
+          <td>{{ materia.professor }}</td>
+          <td class="actions">
+            <button mat-raised-button color="primary" [routerLink]="['']">
+              Alterar
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="deleteById(materia.id)"
+            >
+              Deletar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-card>

@@ -1,1 +1,57 @@
-<p>atividade works!</p>
+<mat-card>
+  <div>
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['']"
+        class="button-cadastra"
+      >
+        Adicionar Atividade
+      </button>
+    </div>
+    <table class="mat-elevation-z8">
+      <thead>
+        <tr>
+          <td class="cabecalho-tabela">Dia</td>
+          <td class="cabecalho-tabela">Matéria</td>
+          <td class="cabecalho-tabela">Ciclo</td>
+          <td class="cabecalho-tabela">Semana</td>
+          <td class="cabecalho-tabela">Atividade</td>
+          <td class="cabecalho-tabela">Data Inicial</td>
+          <td class="cabecalho-tabela">Data Final</td>
+          <td class="cabecalho-tabela">Status</td>
+          <td class="cabecalho-tabela">Envio</td>
+          <td class="cabecalho-tabela">Apresentar</td>
+          <td class="actions cabecalho-tabela">Ações</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let atividade of atividades">
+          <td>{{ atividade.dia }}</td>
+          <td>{{ atividade.materia.materia }}</td>
+          <td>{{ atividade.ciclo }}</td>
+          <td>{{ atividade.semana }}</td>
+          <td>{{ atividade.atividade }}</td>
+          <td>{{ atividade.data_inicio }}</td>
+          <td>{{ atividade.data_final }}</td>
+          <td>{{ atividade.status }}</td>
+          <td>{{ atividade.envio }}</td>
+          <td>{{ atividade.apresentar }}</td>
+          <td class="actions">
+            <button mat-raised-button color="primary" [routerLink]="['']">
+              Alterar
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="deleteById(atividade.id)"
+            >
+              Deletar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-card>
