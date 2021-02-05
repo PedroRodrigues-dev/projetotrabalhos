@@ -7,11 +7,15 @@ import { MateriaService } from "./materia.service";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
+import { MateriaFormComponent } from './form/materia-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [MateriaListComponent],
+  declarations: [MateriaListComponent, MateriaFormComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     SharedModule,
     MateriaRoutingModule,
     MatCardModule,

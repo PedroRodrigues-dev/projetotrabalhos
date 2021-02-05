@@ -9,6 +9,6 @@ export default class Materia{
         data_inicio: string;
         data_final: string;
         status: string;
-        envio: boolean;
-        apresentar: boolean
+        envio: string;
+        apresentar: string
 }

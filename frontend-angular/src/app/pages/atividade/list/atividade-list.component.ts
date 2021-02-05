@@ -17,7 +17,7 @@ export class AtividadeListComponent implements OnInit {
   findAllAtividades() {
     this.atividadeService
       .findAll()
-      .subscribe((response) => (this.atividades = response));
+      .subscribe((response) => {this.atividades = response.map(item => ({...item, envio: item.envio ? 'Sim' : 'Não', apresentar: item.apresentar ? 'Sim' : 'Não' }))});
   }
 
   deleteById(id: number): void {

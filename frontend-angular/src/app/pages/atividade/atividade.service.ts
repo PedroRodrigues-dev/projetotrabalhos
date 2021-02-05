@@ -7,7 +7,7 @@ import Atividade from './atividade';
   providedIn: 'root',
 })
 export class AtividadeService {
-  protected url = 'http://localhost:8080/materia';
+  protected url = 'http://localhost:8080/atividade';
 
   constructor(protected http: HttpClient) {}
 

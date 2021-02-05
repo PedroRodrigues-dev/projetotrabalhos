@@ -1,12 +1,7 @@
 <mat-card>
   <div>
     <div>
-      <button
-        mat-raised-button
-        color="primary"
-        [routerLink]="['']"
-        class="button-cadastra"
-      >
+      <button mat-raised-button color="primary" [routerLink]="['cadastrar']" class="button-cadastra">
         Adicionar Atividade
       </button>
     </div>
@@ -39,14 +34,10 @@
           <td>{{ atividade.envio }}</td>
           <td>{{ atividade.apresentar }}</td>
           <td class="actions">
-            <button mat-raised-button color="primary" [routerLink]="['']">
+            <button mat-raised-button color="primary" [routerLink]="['alterar/', atividade.id]">
               Alterar
             </button>
-            <button
-              mat-raised-button
-              color="warn"
-              (click)="deleteById(atividade.id)"
-            >
+            <button mat-raised-button color="warn" (click)="deleteById(atividade.id)">
               Deletar
             </button>
           </td>

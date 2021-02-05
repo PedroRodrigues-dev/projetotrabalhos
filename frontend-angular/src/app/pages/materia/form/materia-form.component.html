@@ -1,0 +1,20 @@
+<mat-card>
+  <form [formGroup]="materiaForm">
+    <mat-form-field>
+      <mat-label>Matéria *</mat-label>
+      <input matInput placeholder="ex: Programação" formControlName="materia" />
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Professor *</mat-label>
+      <input matInput placeholder="ex: João" formControlName="professor" />
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="mat-raised-button-salvar" (click)="onSave(materiaForm.value)">
+      Salvar
+    </button>
+    <button mat-raised-button color="warn" (click)="onCancel()">
+      Calcelar
+    </button>
+  </form>
+</mat-card>
