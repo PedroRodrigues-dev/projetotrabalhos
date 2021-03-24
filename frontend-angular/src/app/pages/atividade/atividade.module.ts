@@ -8,9 +8,10 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
-import { AtividadeFormComponent } from './form/atividade-form.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AtividadeFormComponent } from "./form/atividade-form.component";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material";
 
 @NgModule({
   declarations: [AtividadeListComponent, AtividadeFormComponent],
@@ -24,8 +25,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [AtividadeService],
 })
-export class AtividadeModule { }
+export class AtividadeModule {}

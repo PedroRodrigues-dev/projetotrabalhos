@@ -1,100 +1,102 @@
 <mat-card>
-    <form [formGroup]="atividadeForm">
-        <mat-form-field>
-            <mat-label>Dia</mat-label>
-            <mat-select formControlName="dia" required>
-                <mat-option [value]="Segunda-Feira">
-                    Segunda-Feira
-                </mat-option>
-                <mat-option [value]="Terca-Feira">
-                    Terça-Feira
-                </mat-option>
-                <mat-option [value]="Quarta-Feira">
-                    Quarta-Feira
-                </mat-option>
-                <mat-option [value]="Quinta-Feira">
-                    Quinta-Feira
-                </mat-option>
-                <mat-option [value]="Sexta-Feira">
-                    Sexta-Feira
-                </mat-option>
-                <mat-option [value]="Sabado">
-                    Sábado
-                </mat-option>
-                <mat-option [value]="Domingo">
-                    Domingo
-                </mat-option>
-            </mat-select>
-            <mat-hint>Obrigatório</mat-hint>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Materia</mat-label>
-            <mat-select formControlName="materia" required>
-                <mat-option *ngFor="let materia of materias" [value]="materia">
-                    {{ materia.materia }}
-                </mat-option>
-            </mat-select>
-            <mat-hint>Obrigatório</mat-hint>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Ciclo *</mat-label>
-            <input matInput placeholder="ex: 1" formControlName="ciclo" (input)="onlyNumbers($event)" />
-            <mat-hint>Obrigatório</mat-hint>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Semana *</mat-label>
-            <input matInput placeholder="ex: 3" formControlName="semana" (input)="onlyNumbers($event)" />
-            <mat-hint>Obrigatório</mat-hint>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Atividade *</mat-label>
-            <input matInput placeholder="ex: Atividade 01" formControlName="atividade" />
-            <mat-hint>Obrigatório</mat-hint>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Status</mat-label>
-            <mat-select formControlName="status" required>
-                <mat-option [value]="Pendente">
-                    Pendente
-                </mat-option>
-                <mat-option [value]="Realizado">
-                    Realizado
-                </mat-option>
-                <mat-option [value]="Abandonado">
-                    Abandonado
-                </mat-option>
-            </mat-select>
-            <mat-hint>Obrigatório</mat-hint>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Envio</mat-label>
-            <mat-select formControlName="envio" required>
-                <mat-option [value]="True">
-                    Sim
-                </mat-option>
-                <mat-option [value]="False">
-                    Não
-                </mat-option>
-            </mat-select>
-            <mat-hint>Obrigatório</mat-hint>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Apresentar</mat-label>
-            <mat-select formControlName="apresentar" required>
-                <mat-option [value]="True">
-                    Sim
-                </mat-option>
-                <mat-option [value]="False">
-                    Não
-                </mat-option>
-            </mat-select>
-            <mat-hint>Obrigatório</mat-hint>
-        </mat-form-field>
-        <button mat-raised-button color="primary" class="mat-raised-button-salvar" (click)="onSave(materiaForm.value)">
-            Salvar
-        </button>
-        <button mat-raised-button color="warn" (click)="onCancel()">
-            Calcelar
-        </button>
-    </form>
+  <form [formGroup]="atividadeForm">
+    <mat-form-field>
+      <mat-label>Dia</mat-label>
+      <mat-select formControlName="dia" required>
+        <mat-option *ngFor="let dia of dias" [value]="dia.value">
+          {{ dia.viewValue }}</mat-option
+        >
+      </mat-select>
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Materia</mat-label>
+      <mat-select formControlName="materia" required>
+        <mat-option *ngFor="let materia of materias" [value]="materia">
+          {{ materia.materia }}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ciclo *</mat-label>
+      <input
+        matInput
+        placeholder="ex: 1"
+        formControlName="ciclo"
+        (input)="onlyNumbersCiclo($event)"
+      />
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Semana *</mat-label>
+      <input
+        matInput
+        placeholder="ex: 3"
+        formControlName="semana"
+        (input)="onlyNumbersSemana($event)"
+      />
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Atividade *</mat-label>
+      <input
+        matInput
+        placeholder="ex: Atividade 01"
+        formControlName="atividade"
+      />
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Data Inicial</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="data_inicial"
+        name="data_inicial"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" required>
+        <mat-option *ngFor="let status of status" [value]="status.value">
+          {{ status.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Envio</mat-label>
+      <mat-select formControlName="envio" required>
+        <mat-option *ngFor="let booleano of booleanos" [value]="booleano.value">
+          {{ booleano.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Apresentar</mat-label>
+      <mat-select formControlName="apresentar" required>
+        <mat-option *ngFor="let booleano of booleanos" [value]="booleano.value">
+          {{ booleano.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Obrigatório</mat-hint>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      class="mat-raised-button-salvar"
+      (click)="onSave(atividadeForm.value)"
+    >
+      Salvar
+    </button>
+    <button mat-raised-button color="warn" (click)="onCancel()">
+      Calcelar
+    </button>
+  </form>
 </mat-card>
